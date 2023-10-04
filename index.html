@@ -16,6 +16,46 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 #main {margin-left: 120px}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+/* Tab CSS */
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
 </style>
 </head>
 <body class="w3-black">
@@ -68,21 +108,47 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p>
       Hello, and welcome to my portfolio!
       I am most experienced in electronic hardware design and the C language family, and I am most interested in hardware/software co-design and hardware acceleration.
-      I also have working experience in both the corporate sphere and the academic research world. 
+      I also have working experience in both the corporate sphere and the academic research world.
+      In terms of hobbies, I love music and play the bass guitar, and I also greatly enjoy reading and playing video games. 
     </p>
     <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-    <p class="w3-wide">Coding</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+    
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Coding Languages')">Coding Languages</button>
+      <button class="tablinks" onclick="openTab(event, 'Circuits & Hardware Design')">Circuits & Hardware Design</button>
+      <button class="tablinks" onclick="openTab(event, 'Other')">Other</button>
     </div>
-    <p class="w3-wide">Math</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
+    
+    <div id="Coding Languages" class="tabcontent">
+      <p>
+      C<br>
+      C++<br>
+      C#<br>
+      Python<br>
+      MATLAB<br>
+      ARM Assembly<br>
+      RISC-V Assembly<br>
+      </p>
     </div>
-    <p class="w3-wide">Circuits</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-    </div><br>
+    
+    <div id="Circuits & Hardware Design" class="tabcontent">
+      <p>
+      Verilog<br>
+      Xilinx FPGAs & Vivado<br>
+      </p> 
+    </div>
+    
+    <div id="Other" class="tabcontent">
+      <p>
+      General Windows Knowledge<br>
+      General Linux Knowledge (Ubuntu, CentOS, Debian)<br>
+      Linux Bash Shell Scripting<br>
+      Github<br>
+      Agile Software Development<br>
+      </p>
+    </div>
+
+    <br>
     
     <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
       <div class="w3-quarter w3-section">
@@ -154,6 +220,22 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <!-- END PAGE CONTENT -->
 </div>
+
+<script>
+  function openTab(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
 
 </body>
 </html>
